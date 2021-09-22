@@ -805,10 +805,6 @@ template {
 .newsletter {
   position: relative;
   padding: 98px 0 87px 0;
-  background-image: url(../img/nlbg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .newsletter::before {
@@ -861,7 +857,7 @@ template {
 
 .subscribe {
   position: relative;
-  width: 350px;
+  width: 355px;
   height: 55px;
   border-radius: 4px;
   overflow: hidden;

@@ -37,3 +37,8 @@
       myMap.geoObjects.add(myGeoObject); 
   }
 //===============================================
+$('.newsletter').parallax({
+    imageSrc: 'img/nlbg.jpg',
+    speed: 0.4
+});
+//===============================================
