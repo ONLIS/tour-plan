@@ -1,17 +1,30 @@
-const swiper = new Swiper('.swiper', {
+//===============================================
+  var hotelSlider = new Swiper('.hotel-slider', {
     // Optional parameters
     loop: true,
   
     // Navigation arrows
     navigation: {
-      nextEl: '.slider-button--next',
-      prevEl: '.slider-button--prev',
+      nextEl: '.hotel-slider__button--next',
+      prevEl: '.hotel-slider__button--prev',
     },
     keyboard: {
         enabled: true,
-        onlyInViewport: false,
+        onlyInViewport: true,
       },
   });
+//===============================================
+  var reviewsSlider = new Swiper('.reviews-slider', {
+    // Optional parameters
+    loop: true,
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.reviews-slider__button--next',
+      prevEl: '.reviews-slider__button--prev',
+    },
+  });
+//===============================================
   ymaps.ready(init);
   function init(){
       var myMap = new ymaps.Map("map", {center: [7.890730, 98.294727], zoom: 17});
@@ -23,3 +36,4 @@ const swiper = new Swiper('.swiper', {
       });
       myMap.geoObjects.add(myGeoObject); 
   }
+//===============================================
