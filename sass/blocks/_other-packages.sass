@@ -1,0 +1,141 @@
+.other-packages
+    padding: 40px 0 70px 0
+    &__title
+        margin-top: 0
+        margin-bottom: 65px
+        font-style: normal
+        font-weight: bold
+        font-size: 36px
+        line-height: 45px
+        text-align: center
+        text-transform: uppercase
+    &-wrapper
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        column-gap: 30px
+        row-gap: 30px
+        &-element
+            display: flex
+            flex-direction: column
+            position: relative
+            height: 500px
+            border-radius: 8px
+            overflow: hidden
+            background-color: $dark
+            &:first-child
+                grid-column: 1 / 3
+                flex-direction: row
+        &__large-image
+            height: 100%
+            min-width: 50%
+            object-fit: cover
+        &__image
+            min-height: 50%
+            width: 100%
+            object-fit: cover
+        &__sticker
+            position: absolute
+            display: flex
+            justify-content: center
+            align-items: center
+            top: 26px
+            left: 0
+            width: 60px
+            height: 18px
+            font-style: normal
+            font-weight: 600
+            font-size: 8px
+            line-height: 10px
+            border-radius: 0px 4px 4px 0px
+            overflow: hidden
+            background-color: $primary
+            color: $light
+        &__large-sticker
+            position: absolute
+            display: flex
+            justify-content: center
+            align-items: center
+            top: 26px
+            left: 0
+            width: 95px
+            height: 30px
+            font-style: normal
+            font-weight: 600
+            font-size: 12px
+            line-height: 15px
+            border-radius: 0px 4px 4px 0px
+            overflow: hidden
+            background-color: $primary
+            color: $light
+        &-content
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            padding: 30px 21px 25px 32px
+            height: 100%
+            &__rating
+                margin-bottom: 0px
+            &__title
+                margin: 0
+                color: $light
+            &__text
+                margin: 0
+                max-width: 299px
+                max-height: 165px
+                overflow-y: auto
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 22px;
+                color: $light
+            &-booking
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 15px;
+                color: $light
+                &__icon
+                    width: 12px
+                    height: 14px
+                &__text
+                    display: flex
+                    align-items: center
+                    &:not(:last-child)
+                        margin-bottom: 11px
+                &__icon
+                    margin-right: 15px
+            &-price
+                display: flex
+                justify-content: space-between
+                align-items: center
+                flex-wrap: wrap
+                max-width: 297px
+                height: 58px
+                color: $light
+                &__old
+                    flex-basis: 100%
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 18px;
+                    text-decoration-line: line-through;
+                &__new
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 24px;
+                    line-height: 30px;
+                &__btn
+                    width: 120px
+                    height: 40px
+                    border-radius: 4px
+                    font-family: Nunito;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 19px;
+                    border: none
+                    background-color: $primary
+                    color: $light
+                    cursor: pointer
+        &__large-content
+            padding: 46px 21px 25px 43px
