@@ -52,7 +52,11 @@ $(document).ready(function(){
   var modalCloseButton = $('[data-toggle=closeModal]'); 
   modalButton.on('click', openModal);
   modalCloseButton.on('click', closeModal);
-
+  $(document).keydown(function(e) {
+    if (e.keyCode == 27) {
+      closeModal(event);
+    }
+  });
   function openModal(){
     var modalOverlay = $(".modal__overlay");
     var modalDialog = $(".modal__dialog");
@@ -66,4 +70,4 @@ $(document).ready(function(){
     modalOverlay.removeClass("modal__overlay--visible");
     modalDialog.removeClass("modal__dialog--visible");
   }
-});
+  });
