@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $('.phone').mask('+7 (999) 999-99-99');
   var menuButton = document.querySelector(".menu-button");
   menuButton.addEventListener("click", function(){
     document.querySelector(".navbar-bottom").classList.toggle("navbar-bottom--visible");
@@ -48,26 +49,48 @@ $(document).ready(function(){
   });
   //===============================================  
 
-  var modalButton = $('[data-toggle=modal]'); 
-  var modalCloseButton = $('[data-toggle=closeModal]'); 
-  modalButton.on('click', openModal);
-  modalCloseButton.on('click', closeModal);
-  $(document).keydown(function(e) {
-    if (e.keyCode == 27) {
-      closeModal(event);
+    var modalButton = $('[data-toggle=modal]'); 
+    var modalCloseButton = $('[data-toggle=closeModal]'); 
+    modalButton.on('click', openModal);
+    modalCloseButton.on('click', closeModal);
+    $(document).keydown(function(e) {
+      if (e.keyCode == 27) {
+        closeModal(event);
+      }
+    });
+
+    function openModal(){
+      var modalOverlay = $(".modal__overlay");
+      var modalDialog = $(".modal__dialog");
+      modalOverlay.addClass("modal__overlay--visible");
+      modalDialog.addClass("modal__dialog--visible");
     }
-  });
-  function openModal(){
-    var modalOverlay = $(".modal__overlay");
-    var modalDialog = $(".modal__dialog");
-    modalOverlay.addClass("modal__overlay--visible");
-    modalDialog.addClass("modal__dialog--visible");
-  }
-  function closeModal(event){
-    event.preventDefault();
-    var modalOverlay = $(".modal__overlay");
-    var modalDialog = $(".modal__dialog");
-    modalOverlay.removeClass("modal__overlay--visible");
-    modalDialog.removeClass("modal__dialog--visible");
-  }
+
+    function closeModal(event){
+      event.preventDefault();
+      var modalOverlay = $(".modal__overlay");
+      var modalDialog = $(".modal__dialog");
+      modalOverlay.removeClass("modal__overlay--visible");
+      modalDialog.removeClass("modal__dialog--visible");
+    }
+
+    $('.form').each(function(){
+      $(this).validate({
+        errorClass: "invalid",
+        messages: {
+          name: {
+            required: "Please specify your name",
+            minlength: "Minimum length 2 characters",
+          },
+          email: {
+            required: "We need your email address to contact you",
+            email: "Your email address must be in the format of name@domain.com",
+          },
+          phone: {
+            required: "Phone is required",
+            minlength: "Please enter all characters",
+          },
+        },
+      });
+    });
   });

@@ -320,8 +320,8 @@
                 subscribe to our
                 <span class="newsletter-title__strong">Newsletter</span>
             </h2>
-            <form action="send.php" method="POST" class="subscribe newsletter__subscribe">
-                <input type="text" name="email" class="subscribe__input" placeholder="Your email addres">
+            <form action="send.php" method="POST" class="subscribe newsletter__subscribe form">
+                <input type="email" name="email" class="subscribe__input" placeholder="Your email addres" required>
                 <button class="subscribe__button">Send</button>
             </form>
         </div>
@@ -489,8 +489,12 @@
                         SEND US A MESSAGE
                     </h3>
                     <form action="send.php" method="POST" class="form footer__form">
-                        <input type="text" class="input footer__input" name="name" placeholder="Your Full Name">
-                        <input type="text" class="input footer__input" name="phone" placeholder="Phone Number">
+                        <div class="footer__input-group">
+                            <input type="text" class="input footer__input" name="name" placeholder="Your Full Name" minlength="2" required>
+                        </div>
+                        <div class="footer__input-group">
+                            <input type="tel" class="input footer__input phone" name="phone" placeholder="Phone Number" minlength="18" required>
+                        </div>
                         <textarea class="message footer__message" name="message" placeholder="Message"></textarea>
                         <button class="button footer__button" type="submit">Send</button>
                         <span class="footer_info">* Required Fields</span>
@@ -511,9 +515,9 @@
                 Booking
             </h3>
             <form action="send.php" method="POST" class="form modal__form">
-                <input type="text" class="input modal__input" name="name" placeholder="Your Full Name*">
-                <input type="text" class="input modal__input" name="phone" placeholder="Phone Number*">
-                <input type="text" class="input modal__input" name="e-mail" placeholder="Email*">
+                <input type="text" class="input modal__input" name="name" placeholder="Your Full Name*" minlength="2" required>
+                <input type="tel" class="input modal__input phone" name="phone" placeholder="Phone Number*" minlength="18" required>
+                <input type="email" class="input modal__input" name="e-mail" placeholder="Email*" required>
                 <textarea class="message modal__message" name="message" placeholder="Message"></textarea>
                 <button class="button modal__button" type="submit">Send</button>
                 <span class="modal__info">* Required Fields</span>
@@ -525,6 +529,8 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/parallax.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
