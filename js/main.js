@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  $('.phone').mask('+7 (999) 999-99-99');
+  $('.phone').mask('+7 (000) 000-00-00');
   var menuButton = document.querySelector(".menu-button");
+  var errElm = $(".subscribe");
   menuButton.addEventListener("click", function(){
     document.querySelector(".navbar-bottom").classList.toggle("navbar-bottom--visible");
   });
@@ -60,10 +61,15 @@ $(document).ready(function(){
     });
 
     function openModal(){
+      var ww = window.innerWidth;
+      var dw = document.body.clientWidth;
+      var dif = ww - dw;
       var modalOverlay = $(".modal__overlay");
       var modalDialog = $(".modal__dialog");
       modalOverlay.addClass("modal__overlay--visible");
       modalDialog.addClass("modal__dialog--visible");
+      $("html").css("overflow","hidden");
+      $("body").css("padding-right", dif);
     }
 
     function closeModal(event){
@@ -72,6 +78,8 @@ $(document).ready(function(){
       var modalDialog = $(".modal__dialog");
       modalOverlay.removeClass("modal__overlay--visible");
       modalDialog.removeClass("modal__dialog--visible");
+      $("html").css("overflow","auto");
+      $("body").css("padding-right", 0);
     }
 
     $('.form').each(function(){

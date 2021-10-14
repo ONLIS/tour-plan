@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Tour Plan - Hotel Booking</title>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=676d2192-98ec-4ee1-998f-79d03b837230&lang=ru_RU"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
     <header class="navbar navbar--mobile--fixed">
         <div class="container">
             <div class="navbar-top">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <img src="img/horizontal-logo.svg" alt="Logo: Best Tour Plan" class="logo__image">
                 </a>
                 <form action="#" class="search navbar__search navbar__search--mobile--hidden">
@@ -98,7 +99,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-wrapper">
-                <img src="img/vertical-logo.svg" alt="Logo: Best Tour Plan" class="logo footer__logo">
+                <div class="footer__logo-wrapper">
+                    <a href="#">
+                        <img src="img/vertical-logo.svg" alt="Logo: Best Tour Plan" class="logo footer__logo">
+                    </a>
+                </div>
                 <div class="footer__list footer__categories">
                     <h3 class="footer__title">ALL CATEGORIES</h3>
                     <ul class="footer__ul">
@@ -162,15 +167,17 @@
                             <div class="footer__icon-wrapper">
                                 <img src="img/phone_call.svg" alt="icon: phone_call" class="footer__icon">
                             </div>
-                            Tel (business hours) : 269 1500<br>
-                            Tel (hotline) Monday - Saturday: 52-56-61-38 (08:00 am – 20:00 pm)<br>
-                            Tel (hotline) Sunday: 52-56-61-38 (08:00 am – 14:00 pm)<br>            
+                            <div class="footer__contact-wrapper">
+                                Tel (business hours) : <a href="tel:2691500" class="footer__link">269 1500</a><br>
+                                Tel (hotline) Monday - Saturday: <a href="tel:52566138" class="footer__link">52-56-61-38</a> (08:00 am – 20:00 pm)<br>
+                                Tel (hotline) Sunday: <a href="tel:52566138" class="footer__link">52-56-61-38</a> (08:00 am – 14:00 pm)<br>            
+                                </div>
                         </li>
                         <li class="footer__item footer__item--mb-2">
                             <div class="footer__icon-wrapper">
                                 <img src="img/email.svg" alt="icon: email" class="footer__icon">                                
                             </div>
-                            cherly.lawson@example.com
+                            <a href="mailto:cherly.lawson@example.com" class="footer__link">cherly.lawson@example.com</a>
                         </li>
                     </ul>
                 </div>
@@ -178,12 +185,16 @@
                     <h3 class="footer__title footer__title--mb-3">
                         SEND US A MESSAGE
                     </h3>
-                    <form action="send.php" method="POST" class="footer__form">
-                        <input type="text" class="input footer__input" name="name" placeholder="Your Full Name">
-                        <input type="text" class="input footer__input" name="phone" placeholder="Phone Number">
-                        <textarea class="footer__message" name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                    <form action="send.php" method="POST" class="form footer__form">
+                        <div class="footer__input-group">
+                            <input type="text" class="input footer__input" name="name" placeholder="Your Full Name" minlength="2" required>
+                        </div>
+                        <div class="footer__input-group">
+                            <input type="tel" class="input footer__input phone" name="phone" placeholder="Phone Number" minlength="18" required>
+                        </div>
+                        <textarea class="message footer__message" name="message" placeholder="Message"></textarea>
                         <button class="button footer__button" type="submit">Send</button>
-                        <span class="footer_info">* Required Fields</span>
+                        <span class="footer__info">* Required Fields</span>
                     </form>
                 </div>
             </div>

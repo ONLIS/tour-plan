@@ -8,7 +8,6 @@
         padding-bottom: 40px
         &__menu-button
             display: none
-
     &__search
         margin-right: auto
         margin-left: 108px
@@ -26,9 +25,21 @@
             color: inherit
             text-transform: uppercase
             text-decoration: none
-            font-size: 14px
-            line-height: 18px
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
         &__item
+            &::after
+                content: ''
+                display: block
+                height: 1px
+                background-color: $light
+                transition: 0.2s
+                width: 0%
+            &:hover
+                &::after
+                    width: 100%                    
             &--mobile
                 &--visible
                     display: none

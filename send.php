@@ -5,7 +5,7 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 // Переменные, которые отправляет пользователь
-if(isset($_POST['name']) && isset( $_POST['phone']) && isset($_POST['message']))
+if(isset($_POST['name']) && isset( $_POST['phone']) && isset($_POST['message']) && !isset( $_POST['email']))
 {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
@@ -20,24 +20,24 @@ if(isset($_POST['name']) && isset( $_POST['phone']) && isset($_POST['message']))
     $thnks_txt = "Message is send!";
     $thnks_more_txt = "I will call you soon";
     }
-if(isset($_POST['name']) && isset( $_POST['phone']) && isset( $_POST['e-mail']) && isset($_POST['message']))
+elseif(isset($_POST['name']) && isset( $_POST['phone']) && isset( $_POST['email']) && isset($_POST['message']))
 {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
-    $e-mail = $_POST['e-mail'];
+    $e_mail = $_POST['email'];
     $message = $_POST['message'];
     $title = "Новое обращение с сайта Best Tour Plan";
     $body = "
     <h2>Новое письмо</h2>
     <b>Имя:</b> $name<br>
     <b>Телефон:</b> $phone<br><br>
-    <b>Email:</b> $e-mail<br><br>
+    <b>Email:</b> $e_mail<br><br>
     <b>Сообщение:</b><br>$message
     ";
     $thnks_txt = "Message is send!";
     $thnks_more_txt = "I will call you soon";
 }
-elseif(isset($_POST["email"])){
+elseif(isset($_POST["email"]) && !isset($_POST['phone'])){
     $email = $_POST["email"];
     $title = "Подписка на новости сайта Best Tour Plan";
     $body = "<h2>Новая подписка</h2><b>E-mail:</b> $email<br>";
@@ -67,22 +67,6 @@ try {
 
     // Получатель письма
     $mail->addAddress('aleksei@onl.is');  
-
-    // Прикрипление файлов к письму
-/*
-if (!empty($file['name'][0])) {
-    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-        $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-        $filename = $file['name'][$ct];
-        if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-            $mail->addAttachment($uploadfile, $filename);
-            $rfile[] = "Файл $filename прикреплён";
-        } else {
-            $rfile[] = "Не удалось прикрепить файл $filename";
-        }
-    }   
-}
-*/
 // Отправка сообщения
 $mail->isHTML(true);
 $mail->Subject = $title;
@@ -97,7 +81,4 @@ else {$result = "error";}
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
 
-// Отображение результата
-//echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
-//header("Location: thanks.php");
 include("thanks.php");
